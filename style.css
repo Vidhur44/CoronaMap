@@ -1,0 +1,25 @@
+	body { margin: 0; padding: 0; }
+	#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+
+  #marker {
+background-image: url('corona.webp');
+background-size: cover;
+width: 20px;
+height: 20px;
+cursor: pointer;
+}
+#menu {
+position: absolute;
+background: white;
+border-radius:35px;
+padding: 10px;
+top:36.3em;
+left:4px;
+z-index:10000;
+font-family: 'Open Sans', sans-serif;
+}
+
+.mapboxgl-popup p{
+  font-size:14px;
+}
+ 

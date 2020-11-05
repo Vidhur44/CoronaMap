@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+   
+  <link href='style.css' rel='stylesheet' /> 
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+
+  </head>
+  <body>
+
+ <div id='map'></div>
+<div id="menu">
+
+<input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors" checked="checked"/>
+<label for="outdoors-v11">Light</label>
+
+<input id="dark-v10" type="radio" name="rtoggle" value="dark" />
+<label for="dark-v10">Dark</label>
+
+</div>
+
+
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoidmlkaHVycmsiLCJhIjoiY2tndGt6YzczMGx3bjJycGJ3OWhtNDVoMCJ9.BBMq3EONUXngh7fNZTNTVQ';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/outdoors-v11',
+    center: [20,30],
+    zoom: 1.4
+  });
+
+  map.addControl(new mapboxgl.NavigationControl());
+
+  var layerList = document.getElementById('menu');
+var inputs = layerList.getElementsByTagName('input');
+ 
+function switchLayer(layer) {
+var layerId = layer.target.id;
+map.setStyle('mapbox://styles/mapbox/' + layerId);
+}
+ 
+for (var i = 0; i < inputs.length; i++) {
+inputs[i].onclick = switchLayer;
+}
+
+
+</script>
+
+<script src="covid.js"></script>
+  </body>
+
+</html>
